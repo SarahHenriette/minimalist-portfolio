@@ -1,6 +1,6 @@
 <template>
     <nav id="nav">
-        <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32"><path fill="#33323D" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo" width="61" height="32"><path fill="#33323D" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg>
         <ul id="nav-desktop">
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/portfolio">Portfolio</router-link></li>
@@ -52,11 +52,15 @@ export default {
     margin: 64px auto 54px auto;
     position: relative;
     top: 0;
+    .logo {
+        cursor: pointer;
+    }
     #nav-desktop {
         display: flex;
         li a {
             margin-left: 43px;
             color: $grayishDarkBlue;
+            transition: color ease .5s;
         }
     }
     #nav-mobile {

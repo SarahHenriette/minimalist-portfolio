@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-// import ContactUs from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -17,8 +16,10 @@ const routes = [
     component: () => import('../views/Portfolio.vue')
   },
   {
-    path: '/portfolio/:id',
-    component: () => import('../views/Projet.vue')
+    path: '/portfolio/:title',
+    name: 'portfolio',
+    component: () => import('../views/Projet.vue'),
+    query: {test: {}}
   },
   {
     path: '/contactUs',

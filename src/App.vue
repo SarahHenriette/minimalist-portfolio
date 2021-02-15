@@ -71,7 +71,7 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     &:hover {
-      color: $greenSlightly;
+      color: $greenSlightly!important;
     }
   }
   li {
@@ -97,6 +97,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color ease .5s;
     &:hover {
       background-color: $grayishDarkBlue;
       color: $white;
@@ -118,6 +119,7 @@ body {
     font-weight: 400;
     font-family: $publicSans;
     text-align: center;
+    transition: background-color ease .5s;
     cursor: pointer;
     .arrow-down {
       padding: 15px;
@@ -125,6 +127,7 @@ body {
       position : absolute;
       top: 0;
       left: 0;
+      transition: background-color ease .5s;
       svg {
         stroke: #5FB4A2;
       }
@@ -135,6 +138,7 @@ body {
       height: 14px;
       right: 0;
       top: 17px;
+      color: $white;
     }
     &:hover {
       background-color: $greenSlightly;

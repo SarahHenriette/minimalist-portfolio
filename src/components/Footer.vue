@@ -53,6 +53,7 @@ footer {
         bottom: 0;
         #logo-footer {
             fill: $white;
+            cursor: pointer;
         }
         ul {
             display: flex;
@@ -66,6 +67,7 @@ footer {
             margin-left: 48px;
             li a {
                 color: $white;
+                transition: color ease .5s;
             }
         }
         .icon-footer {
@@ -74,6 +76,18 @@ footer {
             display: flex;
             justify-content: space-between;
             margin-left: 588px;
+            li {
+                cursor: pointer;
+                svg {
+                    fill: $white;
+                    transition: fill ease .5s;
+                }
+                &:hover {
+                    svg {
+                        fill: $greenSlightly;
+                    }
+                }
+            }
             li svg {
                 fill: $white;
             }
