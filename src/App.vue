@@ -38,6 +38,7 @@ body {
     font-size: 50px;
     line-height: 50px;
     font-weight: 700;
+    color: $grayishDarkBlue;
   }
 
   h2 {
@@ -45,6 +46,7 @@ body {
     font-size: 40px;
     line-height: 42px;
     font-weight: 700;
+    color: $grayishDarkBlue;
   }
 
   h3 {
@@ -52,6 +54,7 @@ body {
     font-size: 32px;
     line-height: 36px;
     font-weight: 400;
+    color: $grayishDarkBlue;
   }
 
   p {
@@ -90,12 +93,60 @@ body {
     letter-spacing: 2px;
     font-weight: 400;
     font-family: $publicSans;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     &:hover {
       background-color: $grayishDarkBlue;
       color: $white;
     }
   }
 
+  .btn-primary {
+    height: 48px;
+    width: 200px;
+    background-color: $darkBlue;
+    color: $white;
+    position: relative;
+    border: none;
+    padding:0;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-family: $publicSans;
+    text-align: center;
+    cursor: pointer;
+    .arrow-down {
+      padding: 15px;
+      background-color: $grayishDarkBlue;
+      position : absolute;
+      top: 0;
+      left: 0;
+      svg {
+        stroke: #5FB4A2;
+      }
+    }
+    .text {
+      position: absolute;
+      width: 152px;
+      height: 14px;
+      right: 0;
+      top: 17px;
+    }
+    &:hover {
+      background-color: $greenSlightly;
+      color: $white;
+      .arrow-down {
+        background-color: $greenDark;
+        svg {
+          stroke: $white;
+        }
+      }
+    }
+  }
   .line {
     height: 1px;
     background-color: $grayishDarkBlue;

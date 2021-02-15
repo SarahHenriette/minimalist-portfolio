@@ -85,6 +85,7 @@ export default {
             display: flex;
             background-color: $grayishDarkBlue;
             animation: backgroundMenuMobile .5s linear;
+            z-index: 20;
         }
         @keyframes backgroundMenuMobile {
             0% {background-color: transparent}
