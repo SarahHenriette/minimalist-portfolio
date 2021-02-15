@@ -7,14 +7,17 @@
     </div> -->
     <Nav/>
     <router-view/>  
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Nav from '../src/components/Nav'
+import Footer from '../src/components/Footer'
 export default {
   components: {
-    Nav
+    Nav,
+    Footer
   }
 }
 </script>
@@ -26,6 +29,10 @@ body {
   margin: 0;
 }
 #app {
+  //typography
+  $ibarra: 'Ibarra Real Nova', serif;
+  $publicSans: 'Public Sans', sans-serif;
+
   h1 {
     font-family: $ibarra;
     font-size: 50px;
@@ -60,8 +67,6 @@ body {
     line-height: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: $grayishDarkBlue;
-    // margin-left: 43px;
     &:hover {
       color: $greenSlightly;
     }
@@ -73,6 +78,29 @@ body {
     padding-left: 0;
   }
 
+  .btn-secondary {
+    height: 48px;
+    width: 162px;
+    background-color: $white;
+    border: solid 1px $grayishDarkBlue;
+    color: $grayishDarkBlue;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-family: $publicSans;
+    &:hover {
+      background-color: $grayishDarkBlue;
+      color: $white;
+    }
+  }
+
+  .line {
+    height: 1px;
+    background-color: $grayishDarkBlue;
+    opacity: 0.15;
+  }
 
 }
 

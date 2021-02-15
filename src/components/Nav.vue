@@ -56,6 +56,7 @@ export default {
         display: flex;
         li a {
             margin-left: 43px;
+            color: $grayishDarkBlue;
         }
     }
     #nav-mobile {
@@ -111,5 +112,4 @@ export default {
         }
     }
 }
-
 </style>
