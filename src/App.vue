@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/portfolio">Portfolio</router-link> |
-      <router-link to="/contactUs">Contact us</router-link>
-    </div> -->
     <Nav/>
     <router-view/>  
-    <Footer/>
+    
   </div>
 </template>
 
 <script>
 import Nav from '../src/components/Nav'
-import Footer from '../src/components/Footer'
+
 export default {
   components: {
     Nav,
-    Footer
   }
 }
 </script>
@@ -57,6 +51,16 @@ body {
     color: $grayishDarkBlue;
   }
 
+  label {
+    font-family: $publicSans;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  input::placeholder, textarea::placeholder {
+      font-family: $publicSans;
+      font-size: 13px;
+  }
   p {
     font-family: $publicSans;
     font-weight: 400;

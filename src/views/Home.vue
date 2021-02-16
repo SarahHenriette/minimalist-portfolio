@@ -23,14 +23,18 @@
        <div class="line"></div>
      </section>
     </main>
+    <Footer/>
+      <!-- <ContactFooter/> -->
   </div>
 </template>
 
 <script>
+import Footer from '../components/Footer'
 
 export default {
   name: 'Home',
   components: {
+    Footer
   }
 }
 </script>

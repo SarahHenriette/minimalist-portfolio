@@ -19,7 +19,6 @@ const routes = [
     path: '/portfolio/:title',
     name: 'portfolio',
     component: () => import('../views/Projet.vue'),
-    query: {test: {}}
   },
   {
     path: '/contactUs',
