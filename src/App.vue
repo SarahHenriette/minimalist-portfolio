@@ -57,7 +57,7 @@ body {
     font-weight: 700;
     line-height: 30px;
   }
-  input::placeholder, textarea::placeholder {
+  input::placeholder, textarea::placeholder, textarea, input[type="text" i], input[type="email" i] {
       font-family: $publicSans;
       font-size: 13px;
   }

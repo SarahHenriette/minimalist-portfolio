@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <header>
-      <!-- <figure class="background-image-header">
-          <img src="../assets/images/homepage/desktop/image-homepage-hero.jpg" alt="">
-     </figure>  -->
       <section class="text-header">
         <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
         <a href="#aboutMe" class="btn-primary"><span class="arrow-down"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="14"><g fill="none" fill-rule="evenodd" stroke=""><path d="M0 9l8 4 8-4"/><path opacity=".5" d="M0 5l8 4 8-4"/><path opacity=".25" d="M0 1l8 4 8-4"/></g></svg></span><span class="text">About me</span></a>
@@ -11,7 +8,6 @@
     </header>
     <main id="aboutMe">
      <figure class="image-aboutMe">
-       <!-- <img src="../assets/images/homepage/desktop/image-homepage-profile.jpg" alt=""> -->
      </figure>
      <section class="text-aboutMe">
        <div class="line"></div>
@@ -24,7 +20,6 @@
      </section>
     </main>
     <Footer/>
-      <!-- <ContactFooter/> -->
   </div>
 </template>
 
@@ -47,7 +42,7 @@ export default {
     height: 600px;
     margin: auto;
     position: relative;
-    background-image: url("../assets/images/homepage/desktop/image-homepage-hero.jpg");
+    background-image: url("../../public/images/homepage/desktop/image-homepage-hero.jpg");
     margin-bottom: 150px;
     .text-header {
       width: 445px;
@@ -73,7 +68,7 @@ export default {
     margin: auto;
     margin-bottom: 150px;
     .image-aboutMe {
-      background-image: url("../assets/images/homepage/desktop/image-homepage-profile.jpg");
+      background-image: url("../../public/images/homepage/desktop/image-homepage-profile.jpg");
       margin: 0;
       width: 540px;
       height: 600px;
@@ -114,7 +109,7 @@ export default {
   .home {
     header {
       width: 688px;
-      background-image: url("../assets/images/homepage/mobile/image-homepage-hero@2x.jpg");
+      background-image: url("../../public/images/homepage/mobile/image-homepage-hero@2x.jpg");
       background-size: cover;
       margin-bottom: 96px;
       .text-header {
@@ -133,7 +128,7 @@ export default {
       margin:auto;
       margin-bottom: 96px;
       .image-aboutMe {
-        background-image: url("../assets/images/homepage/desktop/image-homepage-profile.jpg");
+        background-image: url("../../public/images/homepage/desktop/image-homepage-profile.jpg");
         background-size:cover;
         background-position: -212px;
         width: 281px;
@@ -154,7 +149,7 @@ export default {
     header {
       width: 311px;
       height: 543px;
-      background-image: url("../assets/images/homepage/mobile/image-homepage-hero.jpg");
+      background-image: url("../../public/images/homepage/mobile/image-homepage-hero.jpg");
       background-size: contain;
       background-repeat: no-repeat;
       margin-bottom: 96px;
@@ -174,7 +169,7 @@ export default {
       flex-direction: column;
       margin-bottom: 115px;
       .image-aboutMe {
-        background-image: url("../assets/images/homepage/desktop/image-homepage-profile.jpg");
+        background-image: url("../../public/images/homepage/desktop/image-homepage-profile.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         width: auto;

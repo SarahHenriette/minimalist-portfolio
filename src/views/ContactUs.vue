@@ -13,13 +13,19 @@
         </section>
         <section class="contact-me">
             <h2>Contact Me</h2>
-            <form action="">
+            <form action="" @submit.prevent="submitForm">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Jane Appleseed">
+                <input type="text" name="name" id="name" placeholder="Jane Appleseed"  v-model="name.value" @focus="focusInput" :class="name.error">
+                <div :class="name.error" v-if="name.errorMessage.length > 0"><span v-for="message in name.errorMessage" :key="message">{{ message }}</span></div>
+
                 <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="email@example.com">
+                <input type="email" name="email" id="email" placeholder="email@example.com"  v-model="email.value" @focus="focusInput" :class="email.error">
+                <div :class="email.error" v-if="email.errorMessage.length > 0"><span v-for="message in email.errorMessage" :key="message">{{ message }}</span></div>
+
                 <label for="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="How can I help?"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="How can I help?"  v-model="message.value" @focus="focusInput" :class="message.error"></textarea>
+                <div :class="message.error" v-if="message.errorMessage.length > 0"><span v-for="message in message.errorMessage" :key="message">{{ message }}</span></div>
+
                 <input type="submit" value="send message" class="btn-submit">
             </form>
         </section>
@@ -33,186 +39,270 @@ import Footer from '../components/ContactFooter'
 export default {
     components: {
         Footer
+    },
+    data () {
+        return {
+            name: {
+                value: "",
+                error: "",
+                errorMessage: []
+            },
+            email: {
+                value: "",
+                error: "",
+                errorMessage: []
+            },
+            message: {
+                value: "",
+                error: "",
+                errorMessage: []
+            },
+        }
+    },
+    methods: {
+        submitForm() {
+
+            this.verifyInputEmpty(this.name)
+            this.verifyInputEmpty(this.email)
+            this.verifyInputEmpty(this.message)
+            this.verifyValidEmail()
+
+            if(this.name.value !== "" && this.email.value !== "" && this.message.value !== "") {
+                alert('Votre message à bien été envoyé')
+                this.name.value = ""
+                this.email.value= ""
+                this.message.value = ""
+            }
+        },
+        verifyInputEmpty(variable) {
+        variable.errorMessage = []
+        if(!variable.value){
+          variable.error = "error"
+          variable.errorMessage.push("This field is required")
+        }
+      },
+      focusInput(e){
+        this.actionFocusInput(e, "name", this.name)
+        this.actionFocusInput(e, "email", this.email)
+        this.actionFocusInput(e, "message", this.message)
+      }, 
+      actionFocusInput(e, value, variable){
+        if(e.target.name == value) {
+          variable.errorMessage = ""
+          variable.error = ""
+        }
+      },
+      verifyValidEmail() {
+        let emailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        if(emailValid.test(this.email.value) ) {
+          return true
+        }
+        this.email.errorMessage.push("This address is not valid")
+        this.email.error = "error"
+      }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import './public/sass/colors.scss';
-    .contact {
-        padding-top: 43px;
-        .get-in-touch {
-            width: 1110px;
-            margin: auto;
-            height: 354px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #DCDCDE;
-            border-bottom: 1px solid #DCDCDE;
-            margin-bottom: 47px;
-            h2 {
-                width: 350px;
-                height: 258px;
-                margin: 0;
-            }
-            article {
-                width: 635px;
-                height: 258px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                p {
-                    width: 100%;
-                    height: 210px;
-                    margin: 0;
-                    opacity: 0.8;
-                }
-                .icon {
-                    width: 100%;
-                    height: 24px;
-                    svg {
-                        margin-right: 15px;
-                    }
-                }
-            }
+
+.contact {
+    padding-top: 43px;
+    .get-in-touch {
+        width: 1110px;
+        margin: auto;
+        height: 354px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #DCDCDE;
+        border-bottom: 1px solid #DCDCDE;
+        margin-bottom: 47px;
+        h2 {
+            width: 350px;
+            height: 258px;
+            margin: 0;
         }
-        .contact-me {
-            width: 1110px;
-            margin: auto;
-            height: 426px;
+        article {
+            width: 635px;
+            height: 258px;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 109px;
-            h2 {
-                width: 350px;
-                height: 100%;
+            p {
+                width: 100%;
+                height: 210px;
                 margin: 0;
+                opacity: 0.8;
             }
-            form {
-                width: 635px;
-                height: 426px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                label {
-                    width: 100%;
-                    height: 30px;
-                }
-                input {
-                    width: 100%;
-                    height: 48px;
-                    background-color: #ECEBED;
-                    border: none;
-                    &::placeholder {
-                        color: #33323D;
-                        opacity: 0.4;
-                        padding-left: 16px;
-                    }
-                }
-                textarea {
-                    width: 100%;
-                    height: 96px;
-                    background-color: #ECEBED;
-                    border: none;
-                     &::placeholder {
-                        color: #33323D;
-                        opacity: 0.4;
-                        padding-left: 16px;
-                        padding-top: 9px;
-                    }
-                }
-                .btn-submit {
-                    width: 200px;
-                    height: 48px;
-                    background-color: $darkBlue;
-                    color: $white;
-                    font-size: 12px;
-                    font-weight: 400;
-                    text-transform: uppercase;
-                    margin-top: 24px;
-                    letter-spacing: 2px;
+            .icon {
+                width: 100%;
+                height: 24px;
+                svg {
+                    margin-right: 15px;
                     cursor: pointer;
                 }
             }
         }
     }
-
-    @media screen and (max-width: 1200px) {
-        .contact {
-            .get-in-touch {
-                width: 689px;
-                height: 388px;
-                flex-direction: column;
-                align-items: flex-start;
+    .contact-me {
+        width: 1110px;
+        margin: auto;
+        height: 426px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 109px;
+        h2 {
+            width: 350px;
+            height: 100%;
+            margin: 0;
+        }
+        form {
+            width: 635px;
+            height: 426px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            label {
+                width: 100%;
+                height: 30px;
+            }
+            input {
+                width: 90%;
+                height: 48px;
+                background-color: #ECEBED;
+                border: none;
+                padding: 0  16px;
+                &::placeholder {
+                    color: #33323D;
+                    opacity: 0.4;
+                }
+                &:focus {
+                    outline: none;
+                    border: 1px #5FB4A2 solid;
+                }
+            }
+            input.error {
+                border: 1px #F43030 solid;
+            }
+            textarea {
+                width: 90%;
+                height: 96px;
+                background-color: #ECEBED;
+                border: none;
+                padding: 9px 16px;
                 
-                h2 {
-                    width: 281px;
-                    height: 42px;
-                    margin-top: 32px;
-                    margin-bottom: 24px;
+                    &::placeholder {
+                    color: #33323D;
+                    opacity: 0.4;
                 }
-                article {
-                    margin-bottom: 32px;
+                    &:focus {
+                    outline: none;
+                    border: 1px #5FB4A2 solid;
                 }
-                article p {
-                    margin-bottom: 24px;
-                    width: 689px;
-                    height: 180px;
-                }
-
             }
-            .contact-me {
-                height: 500px;
-                h2 {
-                    width: 281px;
-                    height: 42px;
+            textarea.error {
+                border: 1px #F43030 solid;
+            }
+            .error {
+                font-family: 'Livvic', sans-serif;
+                font-style: italic;
+                font-weight: bold;
+                font-size: 10px;
+                line-height: 13px;
+                color: #F43030;
+                span {
+                margin-right: 5px;
                 }
+            }
+            .btn-submit {
+                width: 200px;
+                height: 48px;
+                background-color: $darkBlue;
+                color: $white;
+                font-size: 12px;
+                font-weight: 400;
+                text-transform: uppercase;
+                margin-top: 24px;
+                letter-spacing: 2px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contact {
+        .get-in-touch {
+            width: 689px;
+            height: 388px;
+            flex-direction: column;
+            align-items: flex-start;
+            h2 {
+                width: 281px;
+                height: 42px;
+                margin-top: 32px;
+                margin-bottom: 24px;
+            }
+            article {
+                margin-bottom: 32px;
+            }
+            article p {
+                margin-bottom: 24px;
                 width: 689px;
-                flex-direction: column;
-                form {
-                    width: 689px;
-                    margin-top: 32px;
-                }
+                height: 180px;
+            }
+        }
+        .contact-me {
+            height: 500px;
+            h2 {
+                width: 281px;
+                height: 42px;
+            }
+            width: 689px;
+            flex-direction: column;
+            form {
+                width: 689px;
+                margin-top: 32px;
             }
         }
     }
+}
 
-      @media screen and (max-width: 600px) {
-        .contact {
-            .get-in-touch {
+@media screen and (max-width: 600px) {
+    .contact {
+        .get-in-touch {
+            width: 311px;
+            height: auto;
+            margin-bottom: 0;
+            h2 {
                 width: 311px;
-                height: auto;
-                margin-bottom: 0;
-                h2 {
-                    width: 311px;
-                    margin-top: 24px;
-                }
-                article {
-                    width: 311px;
-                    height: 433px;
-                }
-                article p {
-                    margin-bottom: 24px;
-                    width: 311px;
-                    height: 386px;
-
-                }
-
+                margin-top: 24px;
             }
-            .contact-me {
+            article {
                 width: 311px;
-                height: 492px;
-                h2 {
-                    width: 311px;
-                    margin-top: 32px;
-                }
-                form {
-                    width: 311px;
-                    height: 426px;
-                    margin-top: 24px;
-                }
+                height: 433px;
+            }
+            article p {
+                margin-bottom: 24px;
+                width: 311px;
+                height: 386px;
+            }
+        }
+        .contact-me {
+            width: 311px;
+            height: 492px;
+            h2 {
+                width: 311px;
+                margin-top: 32px;
+            }
+            form {
+                width: 311px;
+                height: 426px;
+                margin-top: 24px;
             }
         }
     }
+}
 </style>

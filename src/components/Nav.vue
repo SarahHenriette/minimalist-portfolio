@@ -10,9 +10,9 @@
             <svg v-if="displayIconBurger" xmlns="http://www.w3.org/2000/svg" @click="displayMenuBurger"  id="menu-burger" width="24" height="13"><g fill="#33323D" fill-rule="evenodd"><path d="M0 0h24v1H0zM0 6h24v1H0zM0 12h24v1H0z"/></g></svg>
             <svg v-else xmlns="http://www.w3.org/2000/svg" @click="hideMenuBurger" id="close" width="18" height="19"><path fill="#33323D" fill-rule="evenodd" d="M17.132.661l.707.707L9.707 9.5l8.132 8.132-.707.707L9 10.207.868 18.34l-.707-.707L8.293 9.5.161 1.368.868.661 9 8.793 17.132.661z"/></svg>
             <div :class="menuBurger" class="menu-nav-mobile">
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/portfolio">Portfolio</router-link></li>
-                <li><router-link to="/contactUs">Contact us</router-link></li>
+                <li @click="hideMenuBurger"><router-link to="/">Home</router-link></li>
+                <li @click="hideMenuBurger"><router-link to="/portfolio">Portfolio</router-link></li>
+                <li @click="hideMenuBurger"><router-link to="/contactUs">Contact us</router-link></li>
             </div>
         </ul>
     </nav>
