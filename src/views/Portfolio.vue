@@ -16,7 +16,6 @@
   </main>
 </template>
 
-
 <script>
 import Footer from '../components/Footer'
 import portfolioJson from '../../src/assets/portfolio.json'
