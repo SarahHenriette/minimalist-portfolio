@@ -46,16 +46,16 @@
             <li class="previous" @click="previousProject">
                 <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="16"><path fill="none" stroke="#33323D" d="M9 0L1 8l8 8"/></svg></a>
                 <div class="text">
-                    <h3>Fylo</h3>
+                    <h3>{{ namePreviousProject }}</h3>
                     <p>Previous Project</p>
                 </div>
             </li>
             <li class="next" @click="nextProject">
                 <div class="text">
-                    <h3>Bookmark</h3>
+                    <h3 >{{ nameNextProject }}</h3>
                     <p>Next Project</p>
                 </div>
-                <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="10" height="16"><path fill="none" stroke="#33323D" d="M1 0l8 8-8 8"/></svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="16"><path fill="none" stroke="#33323D" d="M1 0l8 8-8 8"/></svg></a>
             </li>
         </nav>
         <Footer/>
@@ -77,11 +77,11 @@ export default {
     data (){
         return {
             data: [],
-            currentPage: 1,
-            pageCount: 0,
             nbrItem: 1,
             first: this.$route.query.id - 1,
             portfolio : portfolioJson,
+            nameNextProject: "",
+            namePreviousProject: ""
 
         }
     },
@@ -91,6 +91,17 @@ export default {
     methods: {
         displayItem() {
             for (let index = this.first; index < (this.first + this.nbrItem); index++) {
+                if(index == 3) {
+                    this.nameNextProject =this.portfolio.images[0].title
+                }else {
+                    this.nameNextProject = this.portfolio.images[index+1].title
+                }            
+                if(index == 0) {
+                    this.namePreviousProject = this.portfolio.images[this.portfolio.images.length-1].title
+                }else {
+                    this.namePreviousProject = this.portfolio.images[index-1].title
+                }
+                 
              return this.data = this.portfolio.images[index];
             }
         },
@@ -102,8 +113,7 @@ export default {
             this.displayItem()
         },
         nextProject() {
-            console.log('next')
-            console.log(this.first)
+      
             this.first += this.nbrItem
             if(this.first== this.portfolio.images.length) {
                 this.first = 0
