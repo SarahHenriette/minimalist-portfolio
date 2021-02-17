@@ -1,19 +1,19 @@
 <template>
     <nav id="nav">
-        <router-link to="/" name="Home"><svg xmlns="http://www.w3.org/2000/svg" class="logo" width="61" height="32"><path fill="#33323D" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg></router-link>
+        <router-link to="/"><svg xmlns="http://www.w3.org/2000/svg" class="logo" width="61" height="32"><path fill="#33323D" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg></router-link>
         <ul id="nav-desktop">
-            <li><router-link to="/" name="Home">Home</router-link></li>
-            <li><router-link to="/portfolio" name="Portfolio">Portfolio</router-link></li>
-            <li><router-link to="/contactUs" name="ContactUs">Contact us</router-link></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/portfolio">Portfolio</router-link></li>
+            <li><router-link to="/contactUs">Contact us</router-link></li>
         </ul>
         <div id="nav-mobile">
             <svg v-if="displayIconBurger" xmlns="http://www.w3.org/2000/svg" @click="displayMenuBurger"  id="menu-burger" width="24" height="13"><g fill="#33323D" fill-rule="evenodd"><path d="M0 0h24v1H0zM0 6h24v1H0zM0 12h24v1H0z"/></g></svg>
             <svg v-else xmlns="http://www.w3.org/2000/svg" @click="hideMenuBurger" id="close" width="18" height="19"><path fill="#33323D" fill-rule="evenodd" d="M17.132.661l.707.707L9.707 9.5l8.132 8.132-.707.707L9 10.207.868 18.34l-.707-.707L8.293 9.5.161 1.368.868.661 9 8.793 17.132.661z"/></svg>
-            <div :class="menuBurger" class="menu-nav-mobile">
-                <li @click="hideMenuBurger"><router-link to="/" name="Home">Home</router-link></li>
-                <li @click="hideMenuBurger"><router-link to="/portfolio" name="Portfolio">Portfolio</router-link></li>
-                <li @click="hideMenuBurger"><router-link to="/contactUs" name="ContactUs">Contact us</router-link></li>
-            </div>
+            <ul :class="menuBurger" class="menu-nav-mobile">
+                <li @click="hideMenuBurger"><router-link to="/">Home</router-link></li>
+                <li @click="hideMenuBurger"><router-link to="/portfolio">Portfolio</router-link></li>
+                <li @click="hideMenuBurger"><router-link to="/contactUs">Contact us</router-link></li>
+            </ul>
         </div>
     </nav>
 </template>
