@@ -13,7 +13,7 @@
         </section>
         <section class="contact-me">
             <h2>Contact Me</h2>
-            <form action="" @submit.prevent="submitForm">
+            <form action="" @submit.prevent="submitForm" novalidate>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="Jane Appleseed"  v-model="name.value" @focus="focusInput" :class="name.error">
                 <div :class="name.error" v-if="name.errorMessage.length > 0"><span v-for="message in name.errorMessage" :key="message">{{ message }}</span></div>
@@ -65,9 +65,9 @@ export default {
             this.verifyInputEmpty(this.name)
             this.verifyInputEmpty(this.email)
             this.verifyInputEmpty(this.message)
-            this.verifyValidEmail()
+            
 
-            if(this.name.value !== "" && this.email.value !== "" && this.message.value !== "") {
+            if(this.name.value !== "" && this.email.value !== "" && this.message.value !== "" && this.verifyValidEmail()) {
                 alert('Votre message à bien été envoyé')
                 this.name.value = ""
                 this.email.value= ""
@@ -172,7 +172,7 @@ export default {
                 width: 90%;
                 height: 48px;
                 background-color: #ECEBED;
-                border: none;
+                border-color: transparent;
                 padding: 0  16px;
                 &::placeholder {
                     color: #33323D;
@@ -190,7 +190,7 @@ export default {
                 width: 90%;
                 height: 96px;
                 background-color: #ECEBED;
-                border: none;
+                border-color: transparent;
                 padding: 9px 16px;
                 
                     &::placeholder {

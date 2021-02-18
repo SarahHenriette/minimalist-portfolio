@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" id="home">
     <header>
       <section class="text-header">
         <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
