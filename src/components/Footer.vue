@@ -6,7 +6,7 @@
             <router-link to="/contactUs" class="btn-secondary">contact us</router-link>
         </section>
         <section class="nav-footer">
-            <router-link to="/"><svg xmlns="http://www.w3.org/2000/svg" id="logo-footer" width="61" height="32"><path fill="" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg></router-link>
+            <svg xmlns="http://www.w3.org/2000/svg" id="logo-footer" width="61" height="32"><path fill="" fill-rule="evenodd" d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"/></svg>
             <ul class="links-footer">
                 <li><router-link to="/">Home</router-link></li>
                 <li><router-link to="/portfolio">Portfolio</router-link></li>
