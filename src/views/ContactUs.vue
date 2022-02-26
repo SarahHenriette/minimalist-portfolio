@@ -106,6 +106,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './public/sass/colors.scss';
+@import './public/sass/bases.scss';
 
 .contact {
     padding-top: 43px;

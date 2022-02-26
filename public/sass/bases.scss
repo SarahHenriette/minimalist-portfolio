@@ -1,32 +1,5 @@
-<template>
-  <div id="app">
-    <Nav/>
-    <router-view/>  
-    
-  </div>
-</template>
-
-<script>
-import Nav from '../src/components/Nav'
-
-export default {
-  components: {
-    Nav,
-  }
-}
-</script>
-
-<style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&family=Public+Sans&display=swap');
-@import './public/sass/colors.scss';
-
-body {
-  margin: 0;
-}
-#app {
-  //typography
-  $ibarra: 'Ibarra Real Nova', serif;
-  $publicSans: 'Public Sans', sans-serif;
+$ibarra: 'Ibarra Real Nova', serif;
+$publicSans: 'Public Sans', sans-serif;
 
   h1 {
     font-family: $ibarra;
@@ -161,8 +134,3 @@ body {
     background-color: $grayishDarkBlue;
     opacity: 0.15;
   }
-
-}
-
-
-</style>

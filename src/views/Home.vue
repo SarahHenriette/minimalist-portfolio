@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './public/sass/colors.scss';
+@import './public/sass/bases.scss';
 .home {
   header {
     width: 1110px;

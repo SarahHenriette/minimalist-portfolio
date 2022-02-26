@@ -16,6 +16,7 @@
 
 <style lang="scss" scoped>
 @import './public/sass/colors.scss';
+@import './public/sass/bases.scss';
 
        .nav-footer {
         width: 100%;

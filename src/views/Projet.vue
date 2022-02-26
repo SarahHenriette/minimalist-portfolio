@@ -1,7 +1,7 @@
 <template>
     <div class="projet">
         <header >
-            <img :src= data.imageDetailHeader alt="header du projet">
+            <img :src="'/' + data.imageDetailHeader"  alt="image detail header">
         </header>
         <main>
             <section class="infos-projet">
@@ -34,10 +34,10 @@
                 <div class="static-previews">
                     <h3>Static Previews</h3>
                     <div class="img-static-previews-top">
-                        <img :src= data.imageDetailTop alt="">
+                        <img :src="'/' + data.imageDetailTop" alt="image detail top">
                     </div>
                     <div class="img-static-previews-bottom">
-                        <img :src= data.imageDetailBottom alt="">
+                        <img :src="'/' + data.imageDetailBottom" alt="image detail bottom">
                     </div>
                 </div>
             </section>
@@ -84,6 +84,7 @@ export default {
             namePreviousProject: ""
 
         }
+        
     },
     async mounted () {
         this.displayItem()
@@ -101,9 +102,10 @@ export default {
                 }else {
                     this.namePreviousProject = this.portfolio.images[index-1].title
                 }
-                 
+            console.log(this.portfolio.images[index])
              return this.data = this.portfolio.images[index];
             }
+
         },
         previousProject() {
             this.first -= this.nbrItem
@@ -126,6 +128,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './public/sass/colors.scss';
+@import './public/sass/bases.scss';
 
 .projet {
     padding-top: 43px;

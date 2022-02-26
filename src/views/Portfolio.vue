@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './public/sass/colors.scss';
+@import './public/sass/bases.scss';
+
 .portfolio {
   padding-top: 47px;
   .item-portfolio {
